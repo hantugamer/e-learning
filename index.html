@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Learning</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-wrapper">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <span class="brand-icon" aria-hidden="true">🌈</span>
+        <span class="brand-text">E-Learning</span>
+      </div>
+      <button class="home-btn" id="homeBtn" aria-label="Kembali ke menu utama">
+        <span aria-hidden="true">🏠</span>
+      </button>
+    </header>
+
+    <main class="main-content">
+      <section class="screen active" id="homeScreen">
+        <div class="home-layout">
+          <div class="home-left">
+            <div class="small-label">E-Learning</div>
+            <h1>Selamat Datang!</h1>
+            <p class="home-intro">Mari belajar bersama aktiviti yang seronok!</p>
+
+            <div class="grade-choice-wrap">
+              <button class="grade-choice" data-grade="1">
+                <span class="grade-icon" aria-hidden="true">📖</span>
+                <span class="grade-text">Darjah 1</span>
+              </button>
+
+              <button class="grade-choice" data-grade="2">
+                <span class="grade-icon" aria-hidden="true">🌟</span>
+                <span class="grade-text">Darjah 2</span>
+              </button>
+            </div>
+
+            <div class="home-stats">
+              <div class="stat-card">
+                <span class="stat-icon" aria-hidden="true">⚡</span>
+                <span class="stat-label">XP</span>
+                <span class="stat-value" id="xpStat">0 XP</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-icon" aria-hidden="true">⭐</span>
+                <span class="stat-label">Bintang</span>
+                <span class="stat-value" id="starStat">0</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-icon" aria-hidden="true">🪙</span>
+                <span class="stat-label">Koin</span>
+                <span class="stat-value" id="coinStat">0</span>
+              </div>
+            </div>
+
+            <div class="badge-strip" id="badgeStrip">
+              <span class="badge-pill">🌱 Pemula</span>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="hero-card">
+              <div class="hero-sky">
+                <span class="sun" aria-hidden="true">☀️</span>
+                <span class="cloud cloud-one" aria-hidden="true">☁️</span>
+                <span class="cloud cloud-two" aria-hidden="true">☁️</span>
+              </div>
+              <div class="book-stack" aria-hidden="true">
+                <span class="book book-blue">📘</span>
+                <span class="book book-yellow">📗</span>
+                <span class="book book-green">📙</span>
+              </div>
+              <div class="mascot-wrap">
+                <span class="mascot" aria-hidden="true">🐾</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen" id="gradeScreen">
+        <div class="section-card">
+          <div class="section-head">
+            <div>
+              <span class="mini-tag" id="gradeTag">Darjah</span>
+              <h2 id="gradeTitle">Pilih Subjek</h2>
+            </div>
+            <button class="back-btn" id="backGradeBtn">
+              <span aria-hidden="true">←</span> Kembali
+            </button>
+          </div>
+
+          <div class="subject-grid" id="subjectGrid">
+            <button class="subject-card" data-subject="Matematik">
+              <span class="subject-icon" aria-hidden="true">🔢</span>
+              <span class="subject-name">Matematik</span>
+              <span class="subject-detail">Tambah &amp; nombor</span>
+            </button>
+
+            <button class="subject-card" data-subject="Sains">
+              <span class="subject-icon" aria-hidden="true">🔬</span>
+              <span class="subject-name">Sains</span>
+              <span class="subject-detail">Alam sekitar</span>
+            </button>
+
+            <button class="subject-card" data-subject="Sejarah">
+              <span class="subject-icon" aria-hidden="true">🏛️</span>
+              <span class="subject-name">Sejarah</span>
+              <span class="subject-detail">Cerita lalu</span>
+            </button>
+          </div>
+
+          <div class="chapter-panel" id="chapterPanel">
+            <div class="chapter-panel-head">
+              <span class="mini-tag">Pilih Bab</span>
+              <span class="chapter-panel-title" id="chapterTitle">Bab tersedia</span>
+            </div>
+            <div class="chapter-grid" id="chapterGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="quizScreen">
+        <div class="section-card quiz-card-wrap">
+          <div class="quiz-top">
+            <div class="quiz-title-wrap">
+              <span class="mini-tag" id="quizGradeTag">Darjah</span>
+              <h2 id="quizTitle">Matematik</h2>
+            </div>
+            <button class="back-btn" id="backQuizBtn">
+              <span aria-hidden="true">←</span> Menu
+            </button>
+          </div>
+
+          <div class="quiz-panel">
+            <div class="quiz-info">
+              <div class="quiz-meta">
+                <span id="chapterBadge" class="chapter-badge">Bab: Topik</span>
+                <span id="questionCount" class="question-count">Soalan 1/4</span>
+              </div>
+
+              <div class="progress-track" aria-label="Progress soalan">
+                <div class="progress-bar" id="progressBar"></div>
+              </div>
+            </div>
+
+            <div class="question-card">
+              <div class="question-content">
+                <div class="question-kicker" id="subjectKicker">🔢 Matematik</div>
+                <h3 id="questionText">Soalan?</h3>
+
+                <div class="answer-grid" id="answerGrid">
+                  <button class="answer-option" data-answer="0">
+                    <span class="answer-index">A</span>
+                    <span class="answer-text">Pilihan A</span>
+                  </button>
+                  <button class="answer-option" data-answer="1">
+                    <span class="answer-index">B</span>
+                    <span class="answer-text">Pilihan B</span>
+                  </button>
+                  <button class="answer-option" data-answer="2">
+                    <span class="answer-index">C</span>
+                    <span class="answer-text">Pilihan C</span>
+                  </button>
+                  <button class="answer-option" data-answer="3">
+                    <span class="answer-index">D</span>
+                    <span class="answer-text">Pilihan D</span>
+                  </button>
+                </div>
+
+                <div class="feedback-box" id="feedbackBox">
+                  <span class="feedback-label">Feedback</span>
+                  <span class="feedback-text" id="feedbackText">Pilih jawapan.</span>
+                </div>
+
+                <div class="explanation-box" id="explanationBox">
+                  <span class="explanation-label">Penjelasan:</span>
+                  <span id="explanationText"></span>
+                </div>
+
+                <div class="quiz-actions">
+                  <button class="next-btn" id="nextBtn">
+                    Soalan Seterusnya <span aria-hidden="true">➜</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="resultScreen">
+        <div class="section-card result-card">
+          <div class="result-header">
+            <span class="result-spark" aria-hidden="true">🏆</span>
+            <h2>Keputusan Quiz</h2>
+          </div>
+
+          <div class="result-summary">
+            <div class="score-circle">
+              <span id="resultPercent">0%</span>
+            </div>
+
+            <div class="result-details">
+              <div class="reward-summary">
+                <span class="reward-summary-title">Hadiah</span>
+                <span class="reward-summary-value" id="rewardSummary">+10 XP • ⭐ 1 • 🪙 5</span>
+              </div>
+              <div class="result-detail-row">
+                <span class="detail-label">Jumlah Soalan</span>
+                <span class="detail-value" id="resultTotal">0</span>
+              </div>
+              <div class="result-detail-row">
+                <span class="detail-label">Jawapan Betul</span>
+                <span class="detail-value" id="resultCorrect">0</span>
+              </div>
+              <div class="result-detail-row">
+                <span class="detail-label">Jawapan Salah</span>
+                <span class="detail-value" id="resultWrong">0</span>
+              </div>
+              <div class="result-detail-row">
+                <span class="detail-label">Markah</span>
+                <span class="detail-value" id="resultScore">0</span>
+              </div>
+              <div class="result-detail-row">
+                <span class="detail-label">Peratus</span>
+                <span class="detail-value" id="resultPercentage">0%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-actions">
+            <button class="primary-btn" id="retryBtn">Cuba Lagi</button>
+            <button class="secondary-btn" id="menuBtn">Kembali ke Menu</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="chapterScreen">
+        <div class="section-card">
+          <div class="section-head">
+            <div>
+              <span class="mini-tag">Pilih Bab</span>
+              <h2 id="chapterScreenTitle">Bab Subjek</h2>
+            </div>
+            <button class="back-btn" id="backChapterBtn">
+              <span aria-hidden="true">←</span> Kembali
+            </button>
+          </div>
+          <div class="chapter-grid" id="chapterScreenGrid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="data/darjah1.js"></script>
+  <script src="data/darjah2.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
